@@ -4,14 +4,80 @@
 // Crear una función que reciba un array de números y devuelva un nuevo array que
 // contenga solo los números pares.
 
+let numeros = [];  // Variable global para almacenar los números
+
+// funcion generacion de numeros al azar 
+function generarNumeros() {
+    numeros = []; // Vaciar antes de generar nuevos
+    for (let i = 0; i < 6; i++) {
+        const numero = Math.floor(Math.random() * 50) + 1;
+        numeros.push(numero);
+    }
+    // mostrar numeros en html
+    document.getElementById('numerosArray').textContent = 'El array de números es: ' + numeros.join(', ');
+}
+
+// filtrar pares
+function filtrarPares(numeros) {
+    return numeros.filter(num => num % 2 === 0);
+}
+
+// muestra los pares
+function mostrarPares() {
+    const pares = filtrarPares(numeros);
+    document.getElementById('pares').textContent = 'Los números pares son: ' + pares.join(', ');
+}
+
+
 // Ejercicio 2
 // Calcular Promedio
 // Escribir una función que tome un array de números y calcule el promedio.
+
+// notas al azar
+function generarNotas() {
+    const notas = [];
+    
+    // Generamos notas aleatorias
+    for (let i = 0; i < 5; i++) {
+        const nota = Math.floor(Math.random() * 10) + 1;  
+        notas.push(nota);
+    }
+    
+    return notas;
+}
+
+// calcular promedio y mostrar resultados
+function calcularPromedio() {
+    const notas = generarNotas(); 
+
+    // mostrar array de notas
+    document.getElementById('notasArray').textContent = 'Notas: ' + notas.join(', ');
+
+    // promedio con reduce
+    const suma = notas.reduce((acumulador, nota) => acumulador + nota, 0);
+    const promedio = suma / notas.length;
+
+    // mostrar promeido
+    document.getElementById('promedio').textContent = 'El promedio es: ' + promedio.toFixed(2);  
+}
 
 // Ejercicio 3
 // Imprimir con Retraso
 // Usar una función flecha y setTimeout para imprimir cada elemento de un array
 // con un retraso de 1 segundo por elemento.
+
+function imprimirConRetraso() {
+    const elementos = ['A', 'B', 'C', 'D', 'E'];
+    document.getElementById('array3').textContent = ''; 
+  
+    elementos.forEach((elemento, index) => {
+      setTimeout(() => {
+        const salida = document.getElementById('array3');
+        salida.textContent += elemento + ' ';
+      }, 1000 * index);
+    });
+  }
+
 
 // Ejercicio 4
 // Operación con Callback
