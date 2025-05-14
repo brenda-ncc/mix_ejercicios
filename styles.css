@@ -40,11 +40,8 @@ button {
 }
 
 button:hover {
-    background-color: #333;
+    background-color: #3f3e3e;
     border-color: #666;
-    text-shadow: 0 0 5px #ffffff,
-    0 0 5px #d8bece,
-    0 0 5px #3d3b3d; 
 }
 
 p {
@@ -68,3 +65,109 @@ p {
     font-size: 0.95rem;
     color: #ccc;
 }
+
+/* Estilos ejercicio 10*/
+.e10 {
+  
+}
+
+.e10mod {
+    background-color:whitesmoke;
+    color:#111
+}
+
+
+/* Estilos ejercicio 12*/
+input[type="text"] { 
+    width: 250px; 
+    padding: 10px;
+    margin-bottom: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+}
+
+input[type="email"] { 
+    width: 250px; 
+    padding: 10px;
+    margin-left: 15px; /*espacio izquierda para que quede misma altura que nombre*/
+    margin-bottom: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.error12 {
+    color:#e47373;
+}
+
+
+/* Estilos ejercicio 13*/
+
+input[type="tarea"] { 
+    width: 400px; 
+    padding: 10px;
+    margin-right: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+
+#listaElementos {
+    margin-top: 20px;
+    padding-left: 0; 
+    list-style-type: none; /* sin el punto */
+}
+
+.elemento-lista {
+    background-color: #373333;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    margin-left: 10px; 
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.texto-elemento {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.Completado{
+    text-decoration: line-through;
+    color: #4e4e4e;
+}
+
+.boton-completado {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 5px; 
+}
+
+.boton-completado:hover {
+  background-color: #215d31;
+}
+
+.boton-eliminar {
+    background-color: #f44336; 
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+.boton-eliminar:hover {
+  background-color: #d32f2f;
+}
+
+/* FIN estilos ejercicio 13*/

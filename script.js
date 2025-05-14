@@ -84,6 +84,24 @@ function imprimirConRetraso() {
 // Crear una función que reciba un callback y dos números, aplique el callback y
 // devuelva el resultado. Implementar al menos dos callbacks diferentes.
 
+
+function operarConCallback(callback, num1, num2) {
+    return callback(num1, num2);
+  }
+  
+  // Callback 1: sumar dos num
+  const sumar = (a, b) => {
+    return a + b;
+  };
+  
+  // Callback 2: multiplicar dos num
+  const restar = (a, b) => {
+    return a - b;
+  };
+  
+  const resultadoSuma = operarConCallback(sumar, 4, 9);
+  const resultadoMultiplicacion = operarConCallback(restar, 4, 9);
+
 // Ejercicio 5
 // Botón que muestra un mensaje
 // Crear una página con un botón. Al hacer click, debe aparecer un mensaje debajo
@@ -114,10 +132,27 @@ function imprimirConRetraso() {
 // Crear un campo de texto y un título (<h2>). A medida que el usuario escribe, el
 // texto del título debe actualizarse en tiempo real.
 
+
 // Ejercicio 11
 // Aplicar estilos a varios elementos
 // Agregar varios párrafos con una clase compartida. Al presionar un botón, debe
 // cambiar el fondo de esos elementos (resaltarlos visualmente).
+
+function aplicarFondo(elemento) {
+  elemento.classList.add("e10mod"); //.add para agregar estilo a los elementos e10
+}
+
+function cambiarFondo() {
+  document.querySelectorAll('.e10').forEach(aplicarFondo);
+}
+
+function sacarFondo(elemento) {
+  elemento.classList.remove("e10mod");//.remove para remover estilo a los elementos e10mod
+}
+
+function restaurarFondo() {
+  document.querySelectorAll('.e10mod').forEach(sacarFondo);
+}
 
 // Ejercicio 12
 // Validación de formulario simple
@@ -125,10 +160,88 @@ function imprimirConRetraso() {
 // validar que ambos campos estén completos. Muestra un mensaje de error o éxito
 // según el caso.
 
+function validar() {
+    const emailInput = document.getElementById('email_e11');
+    const nombreInput = document.getElementById('nombre_e11');
+
+    // inicio con true y labels de error vacias
+    let valido = true;
+    errorNombre.textContent = "";
+    errorEmail.textContent = "";
+
+    // validacion email
+    if (emailInput.value.trim() === "") {
+        errorEmail.textContent = "* Ingrese nombre "
+        valido = false;
+    }
+    // validacion nombre
+    if (nombreInput.value.trim() === "") {
+        errorNombre.textContent = "* Ingrese email"
+        valido = false;
+   
+    }
+
+    // validacion formulario y alert enviado
+    if (valido) {
+    
+        alert("Formulario enviado");
+        //para borrar nombre, email y alertas luego de enviar
+        nombreInput.value = ""; 
+        emailInput.value = "";
+        errorNombre.textContent = "";
+        errorEmail.textContent = "";
+
+    } 
+}
+
 // Ejercicio 13
 // Generador de lista de tareas
 // Crear una lista de tareas con un input y botón. Cada tarea debe incluir un botón
 // para marcarla como completada (tachada).
+
+const listaTareas = document.getElementById('listaElementos');
+
+function agregarTarea() {
+    const inputTarea = document.getElementById('nuevaTarea');
+    const textoTarea = inputTarea.value.trim();
+
+    if (textoTarea !== "") {
+        const nuevaTareaItem = document.createElement('li'); 
+        nuevaTareaItem.classList.add('elemento-lista');
+
+        // creamos un span para separarlo mejor
+        const textoSpan = document.createElement('span');
+        textoSpan.classList.add('texto-elemento');
+        textoSpan.textContent = textoTarea;
+
+         // creamos boton de tachar/deshacer
+        const botonCompletado = document.createElement('button');
+        botonCompletado.textContent = 'Completado';
+        botonCompletado.classList.add('boton-completado');
+        // accion de boton tachar
+        botonCompletado.onclick = function() {
+            textoSpan.classList.toggle('Completado'); //toggle para seleccionar la clase completado
+            botonCompletado.textContent = textoSpan.classList.contains('Completado') ? 'Deshacer' : 'Completado';
+      };
+        // creamos boton de eliminar
+            const botonEliminar = document.createElement('button');
+          botonEliminar.textContent = 'Eliminar';
+          botonEliminar.classList.add('boton-eliminar');
+          // accion de boton eliminar
+          botonEliminar.onclick = function() {
+            nuevaTareaItem.remove();
+       
+        };
+
+      
+        nuevaTareaItem.appendChild(textoSpan);
+        nuevaTareaItem.appendChild(botonCompletado);
+        nuevaTareaItem.appendChild(botonEliminar);
+        listaTareas.appendChild(nuevaTareaItem);
+
+        inputTarea.value = ""; // Limpiar el input
+    }
+}
 
 // Ejercicio 14
 // Mostrar longitud de texto ingresado
